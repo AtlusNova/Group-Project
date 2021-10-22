@@ -19,10 +19,12 @@ public class gameWin : MonoBehaviour
         }
         
     }
+   
+    
     public void Quit()
     {
         Application.Quit();
-        print("you quit the game");
+        //print("you quit the game");
 
     }
 
