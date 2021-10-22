@@ -3,37 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class gameLose : MonoBehaviour
 {
-
-
-
+    
     public GameObject loseUI;
-    public GameObject loseEffect;
+    public GameObject explosionEffect;
 
     private void OnTriggerEnter(Collider other)
     {
-
         
-       
 
-
-
-        
-       
-        
-        
         // only if you enter the "Enemy" object this activates 
         if (other.gameObject.name == "Enemy")
         {
 
-            //Destroy(this.gameObject);
-            Destroy(GameObject.Find("Player"));
-
-
             Vector3 particleSpawnPoint = other.transform.position;
-            Instantiate(loseEffect, particleSpawnPoint, Quaternion.identity);
+            Instantiate(explosionEffect, particleSpawnPoint, Quaternion.identity);
+            Destroy(GameObject.Find("Player"));
 
             loseUI.SetActive(true);
         }
@@ -44,9 +30,11 @@ public class gameLose : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
+
     public void Quit()
     {
         Application.Quit();
-        //print("you quit the game");
+        print("you quit the game");
+
     }
 }
