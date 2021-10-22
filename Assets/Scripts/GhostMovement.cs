@@ -6,4 +6,6 @@ public class GhostMovement : MonoBehaviour
 {
     public float speed = 1.0f;
 
+
+
 }
