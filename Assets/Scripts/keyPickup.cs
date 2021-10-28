@@ -9,17 +9,19 @@ public class keyPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         //On interact with object named Key , the object is destroyed
-
-        Destroy (GameObject.Find("Key"));
-
-        //marks key as held
-        if (!keyHeld)
+        if (other.gameObject.name == "Key")
         {
-            keyHeld = true;
+            Destroy(GameObject.Find("Key"));
+
+            //marks key as held
+            if (!keyHeld)
+            {
+                keyHeld = true;
+            }
+            openExit();
         }
-        openExit();
     }
     public void openExit()
     {
