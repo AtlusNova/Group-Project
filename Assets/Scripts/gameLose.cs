@@ -14,14 +14,17 @@ public class gameLose : MonoBehaviour
         
 
         // only if you enter the "Enemy" object this activates 
-        if (other.gameObject.name == "Enemy")
+        if (other.gameObject.name != "Key")
         {
+            if (other.gameObject.name != "Exit")
+            {
 
-            Vector3 particleSpawnPoint = other.transform.position;
-            Instantiate(explosionEffect, particleSpawnPoint, Quaternion.identity);
-            Destroy(GameObject.Find("Player"));
+                Vector3 particleSpawnPoint = other.transform.position;
+                Instantiate(explosionEffect, particleSpawnPoint, Quaternion.identity);
+                Destroy(GameObject.Find("Player"));
 
-            loseUI.SetActive(true);
+                loseUI.SetActive(true);
+            }
         }
 
     }
