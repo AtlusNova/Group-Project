@@ -15,13 +15,17 @@ public class gameWin : MonoBehaviour
 
         // only if you enter the "exit" object this activates 
         if (other.gameObject.name == "exit") 
-        { 
+        {
+            Time.timeScale = 0;
+
             winUI.SetActive(true);
         }
         
     }
     public void LoadLevel(string name)
     {
+        Time.timeScale = 1;
+
         SceneManager.LoadScene(name);
     }
 

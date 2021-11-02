@@ -23,6 +23,8 @@ public class gameLose : MonoBehaviour
                 Instantiate(explosionEffect, particleSpawnPoint, Quaternion.identity);
                 Destroy(GameObject.Find("Player"));
 
+                Time.timeScale = 0;
+
                 loseUI.SetActive(true);
             }
         }
@@ -31,6 +33,8 @@ public class gameLose : MonoBehaviour
 
     public void LoadLevel(string name)
     {
+        Time.timeScale = 1;
+
         SceneManager.LoadScene(name);
     }
 
